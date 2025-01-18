@@ -16,6 +16,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     libasio-dev iproute2 \
     python3 python3-venv python3-pip \
     cmake \
-    make
+    make \
+    gdb-multiarch
 
 USER $USERNAME

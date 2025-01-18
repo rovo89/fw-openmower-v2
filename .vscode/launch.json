@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // For remote debugging you need to prepare your CM4 host with a recent OpenOCD version.
+            // Simply follow Step 1 and 2 of this description:
+            //   https://core.x-tech.online/docs/tutorials/flashing-stm32-from-cm4/#step-1-building-openocd
+            // Once done, start OpenOCD on your CM4 host via:
+            //   openocd -f interface/xcore.cfg -f target/stm32h7x.cfg -c "bindto 0.0.0.0"
+            "name": "Debug (remote)",
+            "type": "cortex-debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${command:cmake.launchTargetPath}",
+            "request": "launch",
+            "servertype": "external",
+            "gdbPath": "gdb-multiarch",
+            "gdbTarget": "${input:swdHost}:3333",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "parsed",
+            "postRestartCommands": [
+                "break main",
+                "continue"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "swdHost",
+            "type": "promptString",
+            "default": "openmower.local",
+            "description": "Remote SWD Host running openOCD",
+            "password": false
+        }
+    ]
+}

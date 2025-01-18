@@ -5,7 +5,10 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-vscode.cpptools-extension-pack"
+				"ms-vscode.cpptools-extension-pack",
+				"mcu-debug.debug-tracker-vscode",
+				"mcu-debug.peripheral-viewer",
+				"marus25.cortex-debug"
 			]
 		}
 	}
