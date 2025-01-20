@@ -8,7 +8,8 @@
 				"ms-vscode.cpptools-extension-pack",
 				"mcu-debug.debug-tracker-vscode",
 				"mcu-debug.peripheral-viewer",
-				"marus25.cortex-debug"
+				"marus25.cortex-debug",
+				"rioj7.command-variable"
 			]
 		}
 	}
