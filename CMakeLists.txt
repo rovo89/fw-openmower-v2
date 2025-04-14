@@ -79,6 +79,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
         ext/minmea/minmea.c
         # Emergency Driver
         src/drivers/emergency/gpio_emergency_driver.cpp
+        # Input driver
+        src/drivers/input/input_driver.cpp
         # Raw driver debug interface
         src/debug/debug_tcp_interface.cpp
         src/debug/debug_udp_interface.cpp
@@ -115,6 +117,9 @@ target_add_service(${CMAKE_PROJECT_NAME} DiffDriveService ${CMAKE_CURRENT_SOURCE
 target_add_service(${CMAKE_PROJECT_NAME} MowerService ${CMAKE_CURRENT_SOURCE_DIR}/services/mower_service.json)
 target_add_service(${CMAKE_PROJECT_NAME} GpsService ${CMAKE_CURRENT_SOURCE_DIR}/services/gps_service.json)
 target_add_service(${CMAKE_PROJECT_NAME} InputService ${CMAKE_CURRENT_SOURCE_DIR}/services/input_service.json)
+
+add_cddl(InputConfig ${CMAKE_CURRENT_SOURCE_DIR}/services/input_config.cddl)
+target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC ZCBOR_InputConfig)
 
 set_target_properties(${CMAKE_PROJECT_NAME}
         PROPERTIES SUFFIX ".elf")
